@@ -19,19 +19,18 @@ public class Clase3 {
 			// metodo sort de la clase list
 		cursos.sort(new CompararClase3());
 		
-		cursos.forEach(new ConsumidorClase3());
+		//lambda
+		//si solo tiene que ejecutar un codigo se puede hacer sin llaves
+		cursos.forEach(curso -> System.out.println(curso));
+		//lambda completo
+//		cursos.forEach(curso -> {
+//			System.out.println(curso);
+//		});
 		
 	}	
 }
 
-class ConsumidorClase3 implements Consumer<String> {
 
-	@Override
-	public void accept(String s) {
-		System.out.println(s.length());
-	}
-	
-}
 
 class CompararClase3 implements Comparator<String> {
 
