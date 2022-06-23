@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
-public class Clase1 {
+public class Clase3 {
 
 	public static void main(String[] args) {
 		
@@ -14,21 +15,25 @@ public class Clase1 {
 		cursos.add("curso de java 8");
 		cursos.add("curso de geometria del espacio");
 		cursos.add("curso de historia universal");
-				
-				//  metodo sort de la clase collections
-		Collections.sort(cursos, new CompararClase1());
+			
+			// metodo sort de la clase list
+		cursos.sort(new CompararClase3());
 		
-		for (String curso : cursos) {
-			System.out.println(curso);
-		}
+		cursos.forEach(new ConsumidorClase3());
 		
+	}	
+}
+
+class ConsumidorClase3 implements Consumer<String> {
+
+	@Override
+	public void accept(String s) {
+		System.out.println(s.length());
 	}
-	
-	
 	
 }
 
-class CompararClase1 implements Comparator<String> {
+class CompararClase3 implements Comparator<String> {
 
 	@Override
 	public int compare(String o1, String o2) {
